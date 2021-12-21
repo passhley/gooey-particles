@@ -19,7 +19,8 @@ type ParticleProperties = {
 ```
 
 ## GooeyEmitter
-### Methods
+### Coming Soon
+#### Methods
 Set's the emitter to be enabled or not
 ```lua
 emitter:SetEnabled(enabled: boolean)
