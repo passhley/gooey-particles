@@ -20,11 +20,11 @@ type ParticleProperties = {
 
 ## GooeyEmitter
 ### Coming Soon
-#### Methods
-Set's the emitter to be enabled or not
-```lua
-emitter:SetEnabled(enabled: boolean)
-```
+<!-- #### Methods -->
+<!-- Set's the emitter to be enabled or not -->
+<!-- ```lua -->
+<!-- emitter:SetEnabled(enabled: boolean) -->
+<!-- ``` -->
 
 ## API
 ``Emit`` is used for a single burst of particles. Similar to ``ParticleEffect:Emit(number)``
