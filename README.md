@@ -19,11 +19,12 @@ type ParticleProperties = {
 ```
 
 ## Usage
-All examples can be found inside the ``examples`` Folder
+All examples can be found inside the [examples](examples) Folder
 as hoarcekat stories.
 ### Continuous Emission
 #### With Roact
 ```lua
+-- RoactEmitterExample.story.lua
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local Roact = require(ReplicatedStorage.Packages.Roact)
@@ -102,6 +103,7 @@ end
 ### Single Emission
 #### With Roact
 ```lua
+-- RoactEmitExample.story.lua
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local Roact = require(ReplicatedStorage.Packages.Roact)
