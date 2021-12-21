@@ -18,6 +18,17 @@ type ParticleProperties = {
 }
 ```
 
+## API
+``Emit`` is used for a single burst of particles. Similar to ``ParticleEffect:Emit(number)``
+```lua
+GooeyParticles.Emit(
+	container: GuiObject,
+	position: UDim2,
+	props: ParticleProperties,
+	emitSize: number
+): ()
+```
+
 ## Usage
 All examples can be found inside the [examples](examples) Folder
 as hoarcekat stories.
