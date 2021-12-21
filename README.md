@@ -36,16 +36,16 @@ GooeyParticles.Emit(
 	emitSize: number
 ): ()
 ```
-
+### Coming Soon
 ``CreateEmitter`` is used to create a ``GooeyEmitter`` which is similar to your normal ``ParticleEmitter``,
 you can turn it on or off by using ``emitter:SetEnabled(boolean)``
-```lua
-GooeyParticles.CreateEmitter(
-	container: GuiObject,
-	position: UDim2,
-	props: ParticleProperties
-): GooeyEmitter
-```
+<!-- ```lua -->
+<!-- GooeyParticles.CreateEmitter( -->
+<!-- 	container: GuiObject, -->
+<!-- 	position: UDim2, -->
+<!-- 	props: ParticleProperties -->
+<!-- ): GooeyEmitter -->
+<!-- ``` -->
 
 ## Usage
 All examples can be found inside the [examples](examples) Folder
