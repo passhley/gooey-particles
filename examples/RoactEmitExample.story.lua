@@ -5,8 +5,9 @@ local GooeyParticles = require(ReplicatedStorage.Packages.GooeyParticles)
 
 local PARTICLE_PROPS = {
 	Rotation = NumberRange.new(-360, 360),
-	Lifetime = NumberRange.new(0.3, 0.5),
+	Lifetime = 1,
 	Image = "rbxassetid://241629053",
+	Speed = 30,
 	Size = NumberSequence.new({
 		NumberSequenceKeypoint.new(0, 100),
 		NumberSequenceKeypoint.new(1, 0)

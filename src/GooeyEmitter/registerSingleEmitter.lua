@@ -13,8 +13,8 @@ local function registerSingleEmitter(container: GuiObject, props: GooeyParticleP
 		createParticle(emitter)
 	end
 
-	local disconnectEmitter = bindToRenderstep(function()
-		updateEmitter(emitter)
+	local disconnectEmitter = bindToRenderstep(function(dt)
+		updateEmitter(emitter, dt)
 	end)
 
 	removeEmitter(emitter, disconnectEmitter)(function()

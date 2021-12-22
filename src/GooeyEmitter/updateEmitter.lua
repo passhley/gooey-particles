@@ -5,19 +5,20 @@ local updateParticle = require(script.Parent.Parent.GooeyParticle.updateParticle
 type Emitter = Types.Emitter
 type GooeyParticleEmitter = Types.GooeyParticleEmitter
 
-local function updateEmitter(emitter: Emitter | GooeyParticleEmitter)
-	if emitter.tick ~= nil then
+local function updateEmitter(emitter: Emitter | GooeyParticleEmitter, dt: number): ()
+	if emitter.spawnNextParticleAt ~= nil then
 		if emitter.props.Rate > 0 then
-			emitter.tick += 1
+			local currentTime = os.clock()
 
-			if emitter.tick % math.floor(60 / math.clamp(emitter.props.Rate, 0, 60)) == 0 then
+			if currentTime >= emitter.spawnNextParticleAt then
 				createParticle(emitter)
+				emitter.spawnNextParticleAt = currentTime + (1 / emitter.props.Rate)
 			end
 		end
 	end
 
 	for _, particle in pairs(emitter.particles) do
-		updateParticle(particle, emitter.props)
+		updateParticle(particle, emitter.props, dt)
 	end
 end
 

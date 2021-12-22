@@ -8,10 +8,10 @@ type GooeyParticleProps = Types.GooeyParticleProps
 
 local function registerEmitter(container: GuiObject, props: GooeyParticleProps)
 	local emitter = createEmitter(container, props)
-	emitter.tick = 0
+	emitter.spawnNextParticleAt = os.clock() + (1 / props.Rate)
 
-	local disconnectEmitter = bindToRenderstep(function()
-		updateEmitter(emitter)
+	local disconnectEmitter = bindToRenderstep(function(dt)
+		updateEmitter(emitter, dt)
 	end)
 
 	return removeEmitter(emitter, disconnectEmitter)

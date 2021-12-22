@@ -19,16 +19,15 @@ export type Emitter = {
 }
 
 export type GooeyParticleEmitter = Emitter & {
-	tick: number
+	spawnNextParticleAt: number
 }
 
 export type GooeyParticle = {
 	lifetime: number,
-	maxTick: number,
 	obj: ImageLabel,
 	remove: () -> (),
 	rotation: number,
-	tick: number,
+	spawnedAt: number,
 	velocity: UDim2,
 }
 

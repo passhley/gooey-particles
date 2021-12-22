@@ -9,7 +9,7 @@ return {
 	Rate = 10,
 	Rotation = NumberRange.new(0, 0),
 	Size = 10,
-	Speed = 5,
+	Speed = 10,
 	Spread = NumberRange.new(-360, 360),
 	Transparency = 0,
 	ZIndex = 1,

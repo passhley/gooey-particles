@@ -16,9 +16,9 @@ end
 
 local function createConnection(): ()
 	if renderstepConnection == nil then
-		renderstepConnection = RunService.RenderStepped:Connect(function()
+		renderstepConnection = RunService.RenderStepped:Connect(function(dt)
 			for _, callback in pairs(renderstepCallbacks) do
-				callback()
+				callback(dt)
 			end
 		end)
 	end

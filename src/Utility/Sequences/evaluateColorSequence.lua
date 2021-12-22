@@ -2,6 +2,8 @@ local function evaluateColorSequence(sequence, value)
 	assert(typeof(sequence) == "ColorSequence", "Must pass a valid ColorSequence.")
 	assert(typeof(value) == "number", "Must pass a valid number.")
 
+	value = math.clamp(value, 0, 1)
+
 	if value == 0 then
 		return sequence.Keypoints[1].Value
 	end

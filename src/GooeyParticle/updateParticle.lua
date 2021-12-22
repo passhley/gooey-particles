@@ -6,32 +6,22 @@ local Types = require(script.Parent.Parent.Utility.Types)
 type GooeyParticle = Types.GooeyParticle
 type GooeyParticleProps = Types.GooeyParticleProps
 
-local function updateParticle(particle: GooeyParticle, props: GooeyParticleProps)
-	particle.tick += 1
-	local xAccel = 0
-	local yAccel = 0
+local function updateParticle(particle: GooeyParticle, props: GooeyParticleProps, dt: number): ()
+	local currentTime = os.clock()
+	local alpha = (currentTime - particle.spawnedAt) / particle.lifetime
 
-	if props.Acceleration.X ~= 0 then
-		xAccel = props.Acceleration.X * (particle.tick / 60)
-
-		if xAccel + particle.velocity.X.Offset == 0 then
-			xAccel += 1
-		end
+	if alpha > 1 then
+		particle.remove()
+		particle.obj:Destroy()
+		return
 	end
 
-	if props.Acceleration.Y ~= 0 then
-		yAccel = -props.Acceleration.Y * (particle.tick / 60)
+	local acceleration = props.Acceleration * dt * 5
+	particle.velocity += acceleration
+	particle.position += particle.velocity * dt
 
-		if yAccel + particle.velocity.Y.Offset == 0 then
-			yAccel += 1
-		end
-	end
-
-	local drag = UDim2.fromOffset(xAccel, yAccel)
-	particle.obj.Position += particle.velocity + drag
-	particle.obj.Rotation += particle.rotation
-
-	local alpha = (particle.tick / 60) / particle.lifetime
+	particle.obj.Position = UDim2.fromOffset(particle.position.X, particle.position.Y)
+	particle.obj.Rotation += particle.rotation * dt
 
 	if typeof(props.Transparency) ~= "number" then
 		particle.obj.ImageTransparency = evaluateNumberSequence(props.Transparency, alpha)
@@ -44,11 +34,6 @@ local function updateParticle(particle: GooeyParticle, props: GooeyParticleProps
 	if typeof(props.Size) ~= "number" then
 		local size = evaluateNumberSequence(props.Size, alpha)
 		particle.obj.Size = UDim2.fromOffset(size, size)
-	end
-
-	if particle.tick == particle.maxTick then
-		particle.remove()
-		particle.obj:Destroy()
 	end
 end
 
