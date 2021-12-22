@@ -5,7 +5,7 @@ type GooeyParticleProps = Types.GooeyParticleProps
 type Emitter = Types.Emitter
 
 local function createEmitter(container: GuiObject, props: GooeyParticleProps): Emitter
-	reconcileParticleProps(props)
+	props = reconcileParticleProps(props)
 	return {
 		container = container,
 		particles = {},

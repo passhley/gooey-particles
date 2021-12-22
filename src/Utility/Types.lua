@@ -32,4 +32,10 @@ export type GooeyParticle = {
 	velocity: UDim2,
 }
 
+export type GooeyEmitter = {
+	container: Frame,
+	emitter: (onComplete: () -> () | nil) -> () | nil,
+	props: GooeyParticleProps
+}
+
 return {}
