@@ -9,7 +9,7 @@ local TestEmitter = Roact.PureComponent:extend("TestEmitter")
 
 function TestEmitter:init()
 	self:setState({
-		hovered = false
+		hovered = false,
 	})
 end
 
@@ -26,17 +26,17 @@ function TestEmitter:render()
 
 		[Roact.Event.MouseEnter] = function()
 			self:setState({
-				hovered = true
+				hovered = true,
 			})
 		end,
 		[Roact.Event.MouseLeave] = function()
 			self:setState({
-				hovered = false
+				hovered = false,
 			})
 		end,
 	}, {
 		UICorner = Roact.createElement("UICorner", {
-			CornerRadius = UDim.new(0, 4)
+			CornerRadius = UDim.new(0, 4),
 		}),
 
 		Particles = Roact.createElement(Particles, {
@@ -45,19 +45,20 @@ function TestEmitter:render()
 			Lifetime = NumberRange.new(0.3, 0.5),
 			Rate = 40,
 			Image = "rbxassetid://6319951708",
+			OriginOffset = 25,
 			Size = NumberSequence.new({
-				NumberSequenceKeypoint.new(0, 0),
-				NumberSequenceKeypoint.new(1, 100)
+				NumberSequenceKeypoint.new(0, 20),
+				NumberSequenceKeypoint.new(1, 20),
 			}),
 			Transparency = NumberSequence.new({
 				NumberSequenceKeypoint.new(0, 0),
-				NumberSequenceKeypoint.new(1, 1)
+				NumberSequenceKeypoint.new(1, 1),
 			}),
 			Color = ColorSequence.new({
 				ColorSequenceKeypoint.new(0, Color3.new(1, 1, 1)),
-				ColorSequenceKeypoint.new(1, Color3.new(1, 1, 0))
+				ColorSequenceKeypoint.new(1, Color3.new(1, 1, 0)),
 			}),
-		})
+		}),
 	})
 end
 
