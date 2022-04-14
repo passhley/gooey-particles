@@ -9,17 +9,8 @@ export type GooeyParticleProps = {
 	Speed: number,
 	Spread: NumberRange,
 	Transparency: number | NumberSequence,
-	ZIndex: number
-}
-
-export type Emitter = {
-	container: GuiObject,
-	particles: Array<ImageLabel>,
-	props: GooeyParticleProps
-}
-
-export type GooeyParticleEmitter = Emitter & {
-	spawnNextParticleAt: number
+	ZIndex: number,
+	OriginOffset: number | NumberRange | nil,
 }
 
 export type GooeyParticle = {
@@ -32,10 +23,20 @@ export type GooeyParticle = {
 	velocity: Vector2,
 }
 
+export type Emitter = {
+	container: GuiObject,
+	particles: Dictionary<GooeyParticle>,
+	props: GooeyParticleProps,
+}
+
+export type GooeyParticleEmitter = Emitter & {
+	spawnNextParticleAt: number,
+}
+
 export type GooeyEmitter = {
 	container: Frame,
 	emitter: (onComplete: () -> () | nil) -> () | nil,
-	props: GooeyParticleProps
+	props: GooeyParticleProps,
 }
 
 return {}

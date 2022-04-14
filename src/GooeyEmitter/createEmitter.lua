@@ -9,7 +9,7 @@ local function createEmitter(container: GuiObject, props: GooeyParticleProps): E
 	return {
 		container = container,
 		particles = {},
-		props = props
+		props = props,
 	}
 end
 

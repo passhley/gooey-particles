@@ -24,7 +24,7 @@ local function createConnection(): ()
 	end
 end
 
-local function bindToRenderstep(callback: () -> ()): () -> ()
+local function bindToRenderstep(callback: (dt: number) -> nil): () -> ()
 	local id = HttpService:GenerateGUID(false)
 	renderstepCallbacks[id] = callback
 	createConnection()

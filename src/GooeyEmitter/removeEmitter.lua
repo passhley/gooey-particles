@@ -6,19 +6,20 @@ local isEmpty = Llama.isEmpty
 type Emitter = Types.Emitter
 type GooeyParticleEmitter = Types.GooeyParticleEmitter
 
-local function removeEmitter(emitter: Emitter | GooeyParticleEmitter, disconnectEmitter: () -> ()): (onComplete: () -> () | nil) -> ()
+local function removeEmitter(
+	emitter: Emitter | GooeyParticleEmitter,
+	disconnectEmitter: () -> ()
+): (onComplete: () -> () | nil) -> ()
 	return function(onComplete)
 		emitter.props.Rate = 0
 
 		task.spawn(function()
 			repeat
 				task.wait()
-			until
-				isEmpty(emitter.particles) == true
+			until isEmpty(emitter.particles) == true
 
 			disconnectEmitter()
 			disconnectEmitter = nil
-
 			emitter = nil
 
 			if onComplete ~= nil then

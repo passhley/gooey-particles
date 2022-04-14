@@ -17,12 +17,18 @@ local function getParticleLifetime(lifetime: number | NumberRange): number
 	return RNG:NextNumber(lifetime.Min, lifetime.Max)
 end
 
-local function getParticleVelocity(spread: NumberRange, speed: number): UDim2
+local function getParticleVelocity(spread: NumberRange, speed: number): Vector2
 	local angle = RNG:NextNumber(spread.Min, spread.Max)
 	local run = math.cos(math.rad(angle)) * speed
 	local rise = math.sin(math.rad(angle)) * speed
 
 	return Vector2.new(run, rise) * 5
+end
+
+local function getParticleOrigin(originOffset: number): Vector2
+	originOffset = math.abs(originOffset)
+
+	return Vector2.new(RNG:NextNumber(-originOffset, originOffset), RNG:NextNumber(-originOffset, originOffset))
 end
 
 local function createParticleObject(container: GuiObject, props: GooeyParticleProps): ImageLabel
@@ -51,8 +57,9 @@ local function createParticle(emitter: Emitter | GooeyParticleEmitter)
 		end,
 		rotation = RNG:NextNumber(emitter.props.Rotation.Min, emitter.props.Rotation.Max),
 		spawnedAt = os.clock(),
-		position = Vector2.new(0, 0),
-		velocity = getParticleVelocity(emitter.props.Spread, emitter.props.Speed)
+		-- position = Vector2.new(0, 0),
+		position = getParticleOrigin(emitter.props.OriginOffset),
+		velocity = getParticleVelocity(emitter.props.Spread, emitter.props.Speed),
 	}
 
 	emitter.particles[id] = particle

@@ -31,7 +31,7 @@ function RoactElement:render()
 		Position = self.props.Position,
 		Size = UDim2.fromOffset(0, 0),
 		ZIndex = self.props.ZIndex,
-		[Roact.Ref] = self.frameRef
+		[Roact.Ref] = self.frameRef,
 	})
 end
 
@@ -53,6 +53,7 @@ function RoactElement:createEmitter()
 			Spread = self.props.Spread,
 			Transparency = self.props.Transparency,
 			ZIndex = self.props.ZIndex,
+			OriginOffset = self.props.OriginOffset,
 		})
 	end
 end

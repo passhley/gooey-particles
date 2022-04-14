@@ -5,6 +5,7 @@ return {
 	Enabled = true,
 	Image = "rbxassetid://241685484",
 	Lifetime = 0.5,
+	OriginOffset = 0,
 	Position = UDim2.fromScale(0.5, 0.5),
 	Rate = 10,
 	Rotation = NumberRange.new(0, 0),

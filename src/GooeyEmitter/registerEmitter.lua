@@ -5,9 +5,10 @@ local Types = require(script.Parent.Parent.Utility.Types)
 local updateEmitter = require(script.Parent.updateEmitter)
 
 type GooeyParticleProps = Types.GooeyParticleProps
+type GooeyParticleEmitter = Types.GooeyParticleEmitter
 
 local function registerEmitter(container: GuiObject, props: GooeyParticleProps)
-	local emitter = createEmitter(container, props)
+	local emitter = createEmitter(container, props) :: GooeyParticleEmitter
 	emitter.spawnNextParticleAt = os.clock() + (1 / props.Rate)
 
 	local disconnectEmitter = bindToRenderstep(function(dt)

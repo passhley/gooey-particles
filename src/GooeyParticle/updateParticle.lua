@@ -1,4 +1,3 @@
-local conditionalProperty = require(script.Parent.Parent.Utility.conditionalProperty)
 local evaluateColorSequence = require(script.Parent.Parent.Utility.Sequences.evaluateColorSequence)
 local evaluateNumberSequence = require(script.Parent.Parent.Utility.Sequences.evaluateNumberSequence)
 local Types = require(script.Parent.Parent.Utility.Types)
