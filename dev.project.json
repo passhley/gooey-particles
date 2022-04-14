@@ -1,0 +1,34 @@
+{
+	"name": "GooeyParticles",
+	"tree": {
+		"$className": "DataModel",
+
+		"ReplicatedStorage": {
+			"$className": "ReplicatedStorage",
+
+			"Packages": {
+				"$className": "Folder",
+
+				"_Index": {
+					"$path": "Packages/_Index"
+				},
+
+				"Llama": {
+					"$path": "Packages/Llama.lua"
+				},
+
+				"Roact": {
+					"$path": "Packages/Roact.lua"
+				},
+
+				"GooeyParticles": {
+					"$path": "src"
+				}
+			},
+
+			"Examples": {
+				"$path": "examples"
+			}
+		}
+	}
+}
