@@ -17,7 +17,12 @@ local function updateParticle(particle: GooeyParticle, props: GooeyParticleProps
 
 	local acceleration = props.Acceleration * dt * 5
 	particle.velocity += acceleration
-	particle.position += particle.velocity * dt
+
+	if props.Drag == 0 then
+		particle.position += particle.velocity * 2 ^ ((currentTime - particle.spawnedAt) * -props.Drag)
+	else
+		particle.position += particle.velocity * dt
+	end
 
 	particle.obj.Position = UDim2.fromOffset(particle.position.X, particle.position.Y)
 	particle.obj.Rotation += particle.rotation * dt

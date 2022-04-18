@@ -44,8 +44,10 @@ function RoactElement:createEmitter()
 		self.particles = registerEmitter(self.frameRef:getValue(), {
 			Acceleration = self.props.Acceleration,
 			Color = self.props.Color,
+			Drag = self.props.Drag,
 			Image = self.props.Image,
 			Lifetime = self.props.Lifetime,
+			OriginOffset = self.props.OriginOffset,
 			Rate = self.props.Rate,
 			Rotation = self.props.Rotation,
 			Size = self.props.Size,
@@ -53,7 +55,6 @@ function RoactElement:createEmitter()
 			Spread = self.props.Spread,
 			Transparency = self.props.Transparency,
 			ZIndex = self.props.ZIndex,
-			OriginOffset = self.props.OriginOffset,
 		})
 	end
 end

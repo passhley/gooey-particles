@@ -1,8 +1,10 @@
 export type GooeyParticleProps = {
 	Acceleration: Vector2,
 	Color: Color3 | ColorSequence,
+	Drag: number,
 	Image: string,
 	Lifetime: number | NumberRange,
+	OriginOffset: number | NumberRange | nil,
 	Rate: number,
 	Rotation: NumberRange,
 	Size: number | NumberSequence,
@@ -10,7 +12,6 @@ export type GooeyParticleProps = {
 	Spread: NumberRange,
 	Transparency: number | NumberSequence,
 	ZIndex: number,
-	OriginOffset: number | NumberRange | nil,
 }
 
 export type GooeyParticle = {

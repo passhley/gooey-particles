@@ -2,6 +2,7 @@ return {
 	Acceleration = Vector2.new(0, 0),
 	AnchorPoint = Vector2.new(0.5, 0.5),
 	Color = Color3.new(1, 1, 1),
+	Drag = 0,
 	Enabled = true,
 	Image = "rbxassetid://241685484",
 	Lifetime = 0.5,
